@@ -1,0 +1,47 @@
+{
+  "name": "BreachProbe for Chrome",
+  "summary": "Scan the app in the current tab for exposed keys, open database tables and broken row-level security.",
+  "description": "BreachProbe reads the JavaScript your app already serves the public and checks for exposed API keys, open database tables, missing security headers and signs of broken authentication. This extension runs the same free scan from your toolbar: open the app you shipped, click BreachProbe, and see your grade and findings without leaving the tab.\n\nThe scan reads what a visitor's browser already sees and inspects your app's public Supabase REST endpoints. It does not ask for your source code, database password or admin credentials.\n\nThe full report on breachprobe.kynth.studio adds a cross-tenant test: two disposable accounts sign up through your app and check whether one can read the other's rows, table by table.\n\nA Kynth Studios product.",
+  "category": "Developer Tools",
+  "language": "English (United States)",
+  "homepageUrl": "https://breachprobe.kynth.studio",
+  "privacyPolicyUrl": "https://breachprobe.kynth.studio/legal/privacy",
+  "supportUrl": "https://breachprobe.kynth.studio",
+  "privacyPractices": {
+    "singlePurpose": "Scan the website open in the user's current browser tab using BreachProbe's own free scan API, and show the security findings in the popup.",
+    "permissionJustifications": {
+      "activeTab": "Used only when the user opens the popup, to read the URL of the tab they are currently viewing so BreachProbe can scan that exact app. No other tabs are read.",
+      "storage": "Stores the last scan result for each site locally on the user's device, so reopening the popup does not require rescanning. Nothing is synced.",
+      "host_permissions_https://breachprobe.kynth.studio/*": "The extension calls this host, BreachProbe's own scan API, to run the free security scan and return results. No other host is contacted."
+    },
+    "remoteCode": {
+      "usesRemoteCode": false,
+      "explanation": "No. The extension ships as a fixed package; nothing is fetched and executed as code at runtime."
+    },
+    "dataUsage": {
+      "collects": ["websiteContent"],
+      "websiteContentNote": "The URL of the tab the user chooses to scan is sent to breachprobe.kynth.studio to run the scan. No page content, form data or history beyond that one URL is read or sent.",
+      "doesNotCollect": [
+        "personallyIdentifiableInfo",
+        "healthInfo",
+        "financialAndPaymentInfo",
+        "authenticationInfo",
+        "personalCommunications",
+        "location",
+        "webBrowsingHistory",
+        "userActivity"
+      ],
+      "certifications": {
+        "noSellingUserData": true,
+        "noUseForUnrelatedPurposes": true,
+        "noUseForCreditworthinessOrLending": true
+      }
+    }
+  },
+  "screenshots": [
+    "screenshots/screenshot-1-start.png",
+    "screenshots/screenshot-2-verdict.png"
+  ],
+  "storeIcon": "store-icon-128.png",
+  "notes": "Screenshots are real Playwright captures of the popup against breachprobe.kynth.studio, composed onto a 1280x800 canvas in the product's own page colour (#0a0a0a). See ops/store-shots.mjs."
+}
