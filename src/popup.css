@@ -1,0 +1,417 @@
+/* THE POPUP, IN BREACHPROBE'S OWN REGISTER.
+ *
+ * ⛔ NOTHING HERE IS A NEW LOOK. The tokens, the chip, the button and the severity ramp are the
+ * shared register's, copied out of the stylesheet breachprobe.kynth.studio actually serves
+ * (/_next/static/css, fetched 2026-09-04) rather than approximated from a screenshot. The accent
+ * five are src/app/product.css in ~/Projects/breachprobe, lines 19 to 23. The faces are the
+ * product's own woff2 subsets, vendored under fonts/. A browser popup 372px wide has no
+ * precedent on the site, so its LAYOUT is written here; every colour, border, chip and control
+ * inside that layout is the register's.
+ *
+ * ⛔ SENTENCE LED, NEVER A FIGURE OVER A TRACKED LABEL. The largest element on this surface is
+ * the summary sentence the engine wrote. The grade and the score are body size, inside a line of
+ * prose. A giant numeral under a small tracked caption is banned on every surface the studio
+ * makes, and a scanner popup is the most tempting place in the estate to draw one.
+ *
+ * DARK ONLY. The register carries both polarities; a Chrome popup is a small panel with no
+ * surrounding page, and BreachProbe's own default is dark, so this one takes the dark tokens
+ * straight rather than shipping a second theme nobody can see the seam of.
+ */
+
+@font-face {
+  font-family: "Geist Pixel";
+  src: url("../fonts/geist-pixel-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/inter-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/inter-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/inter-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+/* ── the register's dark :root, verbatim, trimmed to the names this surface reads ─────────── */
+:root {
+  color-scheme: dark;
+  --rs-fg-rgb: 255 255 255;
+  --rs-ground: #0a0a0a;
+  --rs-panel: #121212;
+  --rs-panel-2: #171717;
+  --rs-ink-1: #e5e5e5;
+  --rs-ink-dim: #a1a1a1;
+  --rs-ink-quiet: #8a8a8a;
+  --rs-wash-1: rgb(var(--rs-fg-rgb) / 0.02);
+  --rs-wash-2: rgb(var(--rs-fg-rgb) / 0.031);
+  --rs-wash-3: rgb(var(--rs-fg-rgb) / 0.051);
+  --rs-wash-5: rgb(var(--rs-fg-rgb) / 0.102);
+  --rs-line-soft: rgb(var(--rs-fg-rgb) / 0.071);
+  --rs-line: rgb(var(--rs-fg-rgb) / 0.122);
+  --rs-line-hard: rgb(var(--rs-fg-rgb) / 0.2);
+  --rs-pass: #8ed44a;
+  --rs-fail: #ef6b70;
+  --rs-warn: #f0a25a;
+  --rs-caution: #d8c76b;
+  --rs-elev-1: 0 1px 2px rgb(0 0 0 / 0.45);
+  --rs-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --rs-dur-1: 140ms;
+
+  /* the register's aliases onto the ink ramp */
+  --rs-ink: var(--rs-ink-1);
+  --rs-dim: var(--rs-ink-dim);
+  --rs-quiet: var(--rs-ink-quiet);
+
+  /* ── the accent five, breachprobe/src/app/product.css lines 19 to 23 ── */
+  --rs-accent: #95c2ff;
+  --rs-accent-hover: #abcfff;
+  --rs-accent-line: rgb(149 194 255 / 0.28);
+  --rs-accent-wash: rgb(149 194 255 / 0.06);
+  --rs-accent-band: rgb(149 194 255 / 0.04);
+  --rs-acc: var(--rs-accent);
+  --rs-acc-hover: var(--rs-accent-hover);
+  --rs-acc-line: var(--rs-accent-line);
+  --rs-acc-wash: var(--rs-accent-wash);
+
+  --rs-mono: "Geist Pixel", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 372px;
+  margin: 0;
+  padding: 14px 16px 16px;
+  background: var(--rs-ground);
+  color: var(--rs-ink);
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ── .rs-chip, copied from the served stylesheet ──────────────────────────────────────────── */
+.rs-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border: 1px solid var(--rs-line);
+  background: var(--rs-wash-2);
+  font-family: var(--rs-mono);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--rs-dim);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: var(--rs-elev-1);
+  transition:
+    border-color var(--rs-dur-1) var(--rs-ease),
+    color var(--rs-dur-1) var(--rs-ease),
+    background-color var(--rs-dur-1) var(--rs-ease);
+}
+.rs-chip--off {
+  color: var(--rs-ink-dim);
+  border-color: var(--rs-wash-5);
+  background: var(--rs-wash-1);
+}
+
+/* ── .rs-sev, the ordered verdict ramp, copied from the served stylesheet ─────────────────── */
+.rs-sev {
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+.rs-sev--critical {
+  color: var(--rs-fail);
+  border-color: rgb(from var(--rs-fail) r g b / 0.34);
+  background: rgb(from var(--rs-fail) r g b / 0.1);
+}
+.rs-sev--high {
+  color: var(--rs-warn);
+  border-color: rgb(from var(--rs-warn) r g b / 0.3);
+  background: rgb(from var(--rs-warn) r g b / 0.07);
+}
+.rs-sev--medium {
+  color: var(--rs-caution);
+  border-color: rgb(from var(--rs-caution) r g b / 0.26);
+  background: rgb(from var(--rs-caution) r g b / 0.06);
+}
+.rs-sev--low {
+  color: var(--rs-dim);
+}
+.rs-sev--pass {
+  color: var(--rs-pass);
+  border-color: rgb(from var(--rs-pass) r g b / 0.28);
+  background: rgb(from var(--rs-pass) r g b / 0.06);
+}
+
+/* ── .rs-btn, copied from the served stylesheet ───────────────────────────────────────────── */
+.rs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: 1px solid var(--rs-acc);
+  background: var(--rs-acc);
+  color: var(--rs-panel);
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--rs-elev-1);
+  transition:
+    background-color var(--rs-dur-1) var(--rs-ease),
+    border-color var(--rs-dur-1) var(--rs-ease);
+}
+.rs-btn:hover {
+  background: var(--rs-acc-hover);
+  border-color: var(--rs-acc-hover);
+}
+.rs-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.rs-btn--ghost {
+  background: transparent;
+  border-color: var(--rs-line);
+  color: var(--rs-ink);
+}
+.rs-btn--ghost:hover {
+  background: var(--rs-wash-3);
+  border-color: var(--rs-line-hard);
+}
+.rs-btn--sm {
+  padding: 7px 12px;
+  font-size: 13px;
+}
+.rs-btn:focus-visible,
+.rs-chip:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--rs-acc);
+  outline-offset: 2px;
+}
+
+/* ── the popup's own layout ───────────────────────────────────────────────────────────────── */
+.head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rs-line);
+}
+.mark {
+  display: block;
+}
+.wordmark {
+  font-family: var(--rs-mono);
+  font-size: 14px;
+  color: var(--rs-ink);
+}
+.site {
+  margin-left: auto;
+  color: var(--rs-quiet);
+  font-size: 11px;
+  font-family: var(--rs-mono);
+  text-decoration: none;
+}
+.site:hover {
+  color: var(--rs-acc);
+}
+
+.origin {
+  margin: 12px 0 10px;
+  font-size: 12px;
+  font-family: var(--rs-mono);
+  color: var(--rs-dim);
+  word-break: break-all;
+}
+.origin strong {
+  color: var(--rs-ink);
+  font-weight: 400;
+}
+
+.pane[hidden] {
+  display: none;
+}
+
+.lede {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--rs-ink);
+}
+
+.confirm {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: var(--rs-dim);
+  cursor: pointer;
+}
+.confirm input {
+  margin: 3px 0 0;
+  accent-color: var(--rs-acc);
+  flex: none;
+}
+
+.full {
+  width: 100%;
+}
+
+.err {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  border: 1px solid rgb(from var(--rs-fail) r g b / 0.34);
+  background: rgb(from var(--rs-fail) r g b / 0.1);
+  color: var(--rs-fail);
+  font-size: 12px;
+}
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 0;
+  color: var(--rs-quiet);
+  font-size: 12px;
+  font-family: var(--rs-mono);
+}
+.steps li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--rs-line-hard);
+  flex: none;
+}
+.steps li.on {
+  color: var(--rs-ink);
+}
+.steps li.on::before {
+  background: var(--rs-acc);
+}
+.steps li.done {
+  color: var(--rs-dim);
+}
+.steps li.done::before {
+  background: var(--rs-pass);
+}
+
+.summary {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--rs-ink);
+}
+
+.verdict-line {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--rs-dim);
+}
+.verdict-line strong {
+  color: var(--rs-ink);
+  font-family: var(--rs-mono);
+  font-weight: 400;
+}
+
+.counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.findings {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rs-line);
+  max-height: 226px;
+  overflow-y: auto;
+}
+.findings li {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--rs-line-soft);
+}
+.findings .sev {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--rs-mono);
+  font-size: 11px;
+  padding-top: 1px;
+}
+.findings .sev svg {
+  flex: none;
+}
+.findings .title {
+  font-size: 12px;
+  color: var(--rs-ink);
+}
+.findings .where {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--rs-mono);
+  font-size: 11px;
+  color: var(--rs-quiet);
+}
+
+.rls {
+  margin: 10px 0 0;
+  padding: 9px 10px;
+  border: 1px solid var(--rs-line);
+  background: var(--rs-panel);
+  font-size: 11px;
+  color: var(--rs-dim);
+}
+
+.foot {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+  margin-top: 12px;
+}
+.foot .rs-btn {
+  flex: 1;
+}
+.foot .rs-btn--ghost {
+  flex: 0 0 auto;
+}
+
+.stamp {
+  margin: 10px 0 0;
+  font-family: var(--rs-mono);
+  font-size: 11px;
+  color: var(--rs-quiet);
+}

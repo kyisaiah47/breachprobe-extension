@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>BreachProbe</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="head">
+      <img class="mark" src="../icons/icon32.png" alt="" width="20" height="20" />
+      <span class="wordmark">BreachProbe</span>
+      <a class="site" href="https://breachprobe.kynth.studio" target="_blank" rel="noreferrer">breachprobe.kynth.studio</a>
+    </header>
+
+    <p class="origin" id="origin"></p>
+
+    <!-- START: no verdict yet for this origin -->
+    <section class="pane" id="pane-start" hidden>
+      <p class="lede">Scan the app in this tab and read what it is serving the public.</p>
+      <label class="confirm">
+        <input type="checkbox" id="owner" />
+        <span id="owner-label"></span>
+      </label>
+      <button class="rs-btn full" id="scan" type="button" disabled>Scan free</button>
+      <p class="err" id="start-err" hidden></p>
+    </section>
+
+    <!-- RUNNING: the five stages src/lib/scan actually runs, in the order it runs them -->
+    <section class="pane" id="pane-running" hidden>
+      <ol class="steps" id="steps"></ol>
+    </section>
+
+    <!-- VERDICT -->
+    <section class="pane" id="pane-verdict" hidden>
+      <p class="summary" id="summary"></p>
+      <p class="verdict-line" id="verdict-line"></p>
+      <ul class="counts" id="counts"></ul>
+      <ul class="findings" id="findings"></ul>
+      <p class="rls" id="rls" hidden></p>
+      <div class="foot">
+        <a class="rs-btn rs-btn--sm" id="report" href="https://breachprobe.kynth.studio/#scan" target="_blank" rel="noreferrer">Open the full report</a>
+        <button class="rs-btn rs-btn--ghost rs-btn--sm" id="rescan" type="button">Scan again</button>
+      </div>
+      <p class="stamp" id="stamp"></p>
+    </section>
+
+    <!-- NOTHING TO SCAN: an extension page, a chrome:// page, a local file -->
+    <section class="pane" id="pane-idle" hidden>
+      <p class="lede">There is no web page in this tab to scan. Open the app you shipped and try again.</p>
+      <a class="rs-btn rs-btn--sm full" href="https://breachprobe.kynth.studio/#scan" target="_blank" rel="noreferrer">Scan a URL on breachprobe.kynth.studio</a>
+    </section>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

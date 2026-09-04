@@ -1,0 +1,21 @@
+{
+  "name": "breachprobe-extension",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BreachProbe for Chrome. Scan the app in the current tab through BreachProbe's own scan endpoint.",
+  "scripts": {
+    "icons": "node ops/build-icons.mjs",
+    "glyphs": "node ops/build-glyphs.mjs",
+    "check": "node ops/check.mjs",
+    "pack": "node ops/pack.mjs",
+    "verify": "node ops/verify.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "sharp": "^0.33.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
