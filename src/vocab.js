@@ -1,6 +1,6 @@
 /* BREACHPROBE'S OWN VOCABULARY, COPIED FROM THE PRODUCT AND NOT INVENTED HERE.
  *
- * Everything in this file traces to a file in ~/Projects/breachprobe, read 2026-09-04:
+ * Everything in this file traces to a file in ~/CompoundLabs/breachprobe, read 2026-09-04:
  *
  *   SEVERITY order and names   src/lib/scan/types.ts  ('critical' | 'high' | 'medium' | 'low' | 'pass')
  *   severity colours           BRAND-ASSETS.json      colors.severity, the register's `.rs-sev` ramp

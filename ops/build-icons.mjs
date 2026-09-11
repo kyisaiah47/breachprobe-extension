@@ -2,7 +2,7 @@
  *
  *   node ops/build-icons.mjs
  *
- * The geometry below is `src/components/product-mark.mjs` in ~/Projects/breachprobe, and the
+ * The geometry below is `src/components/product-mark.mjs` in ~/CompoundLabs/breachprobe, and the
  * plate is `src/app/icon.svg` from the same repo: a #0a0a0a tile at rx 7 on a 32 box, the mark
  * on a 32x28 viewBox translated and scaled onto it, in the accent at two opacities. Both were
  * read on 2026-09-04.

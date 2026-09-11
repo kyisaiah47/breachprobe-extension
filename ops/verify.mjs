@@ -1,7 +1,7 @@
 import { chromium } from '@playwright/test';
 import path from 'node:path';
 
-const EXT = path.resolve('/Users/admin/Projects/breachprobe-extension');
+const EXT = path.resolve('/Users/admin/CompoundLabs/breachprobe-extension');
 const userDataDir = '/tmp/bp-ext-profile5';
 
 const context = await chromium.launchPersistentContext(userDataDir, {

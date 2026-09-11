@@ -1,7 +1,7 @@
 /* THE ONE PLACE THIS EXTENSION TALKS TO BREACHPROBE, AND IT IS THE PRODUCT'S OWN ENDPOINT.
  *
  * ⛔ THERE IS NO SCANNER IN HERE. Every check, every severity, every score and every letter grade
- * is decided by src/lib/scan in ~/Projects/breachprobe and served from POST /api/scan. A second
+ * is decided by src/lib/scan in ~/CompoundLabs/breachprobe and served from POST /api/scan. A second
  * implementation living in a browser extension would drift from the product within a week and
  * would put a number next to the BreachProbe name that BreachProbe never computed.
  *

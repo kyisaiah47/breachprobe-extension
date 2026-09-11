@@ -14,7 +14,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { mkdirSync } from 'node:fs';
 
-const EXT = path.resolve('/Users/admin/Projects/breachprobe-extension');
+const EXT = path.resolve('/Users/admin/CompoundLabs/breachprobe-extension');
 const OUT = path.join(EXT, 'store', 'screenshots');
 mkdirSync(OUT, { recursive: true });
 
