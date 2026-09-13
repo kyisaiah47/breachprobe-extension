@@ -6,7 +6,7 @@
  *   node ops/store-shots.mjs
  *
  * Reuses ops/verify.mjs's own popup-opening path (host_permissions origin, so tab detection needs
- * no synthetic gesture) against breachprobe.kynth.studio, a live Kynth Studios product, through a
+ * no synthetic gesture) against breachprobe.thecompound.tech, a live Compound Labs product, through a
  * real scan against the real API.
  */
 import { chromium } from '@playwright/test';
@@ -42,7 +42,7 @@ async function compose(bodyPng, outFile) {
 }
 
 const page = await context.newPage();
-await page.goto('https://breachprobe.kynth.studio', { waitUntil: 'domcontentloaded' });
+await page.goto('https://breachprobe.thecompound.tech', { waitUntil: 'domcontentloaded' });
 await page.bringToFront();
 await page.waitForTimeout(500);
 

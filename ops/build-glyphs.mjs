@@ -2,7 +2,7 @@
  *
  *   node ops/build-glyphs.mjs
  *
- * House rule: every icon on every Kynth Studios product is Solar bold-duotone. BreachProbe already
+ * House rule: every icon on every Compound Labs product is Solar bold-duotone. BreachProbe already
  * vendors the bodies it uses into `src/components/Icon.tsx` (generated there by its own
  * ops/build-icons.mjs from @iconify-json/solar), so the popup takes the SAME path data rather than
  * drawing a second set. `Severity.tsx` is what maps a severity onto a glyph name, and that map is

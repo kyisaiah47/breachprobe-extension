@@ -23,11 +23,11 @@
  * into a zero.
  *
  * CORS: this file runs in the service worker, and the manifest carries a host permission for
- * breachprobe.kynth.studio, so the fetch is not a CORS request. Content scripts are the exception
+ * breachprobe.thecompound.tech, so the fetch is not a CORS request. Content scripts are the exception
  * to that rule, which is one of the reasons this extension has none.
  */
 
-export const ORIGIN = "https://breachprobe.kynth.studio";
+export const ORIGIN = "https://breachprobe.thecompound.tech";
 export const SCAN_ENDPOINT = `${ORIGIN}/api/scan`;
 
 /** The full report a scan id addresses on the product's own site. */

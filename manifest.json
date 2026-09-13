@@ -3,7 +3,7 @@
   "name": "BreachProbe",
   "version": "1.0.0",
   "description": "Scan the app in the current tab for exposed keys, open database tables and broken row-level security.",
-  "homepage_url": "https://breachprobe.kynth.studio",
+  "homepage_url": "https://breachprobe.thecompound.tech",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
@@ -25,5 +25,5 @@
     "type": "module"
   },
   "permissions": ["activeTab", "storage"],
-  "host_permissions": ["https://breachprobe.kynth.studio/*"]
+  "host_permissions": ["https://breachprobe.thecompound.tech/*"]
 }

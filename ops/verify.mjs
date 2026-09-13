@@ -36,13 +36,13 @@ async function openPopupBg(anchorPage) {
   return popup;
 }
 
-/* Test 1: breachprobe.kynth.studio, a live Kynth Studios product covered by host_permissions.
+/* Test 1: breachprobe.thecompound.tech, a live Compound Labs product covered by host_permissions.
  * chrome.tabs.query resolves tab.url without needing the activeTab gesture, exactly as it would
  * for a real user with this tab focused, so this exercises popup.js's own tab-detection path
  * end to end: query -> origin -> owner checkbox -> scan -> render. */
 {
   const page = await context.newPage();
-  await page.goto('https://breachprobe.kynth.studio', { waitUntil: 'domcontentloaded' });
+  await page.goto('https://breachprobe.thecompound.tech', { waitUntil: 'domcontentloaded' });
   await page.bringToFront();
   await page.waitForTimeout(500);
   const popup = await openPopupBg(page);
